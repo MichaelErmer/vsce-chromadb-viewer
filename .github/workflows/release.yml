@@ -9,6 +9,8 @@ jobs:
     name: Build, test and publish VSIX
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    env:
+      VSCE_TOKEN: ${{ secrets.VSCE_TOKEN }}
 
     steps:
       - name: Checkout
@@ -36,9 +38,7 @@ jobs:
         run: npx vsce package
 
       - name: Publish to Visual Studio Marketplace
-        if: ${{ secrets.VSCE_TOKEN != '' }}
-        env:
-          VSCE_TOKEN: ${{ secrets.VSCE_TOKEN }}
+        if: ${{ env.VSCE_TOKEN != '' }}
         run: npx vsce publish -p $VSCE_TOKEN
 
       - name: Create GitHub release and upload VSIX
