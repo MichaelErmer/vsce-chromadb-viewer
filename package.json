@@ -1,7 +1,7 @@
 {
   "name": "vsex-chromadb-viewer",
   "displayName": "ChromaDB Viewer",
-  "description": "View and manage ChromaDB (tenants, databases, collections, vectors) from the VS Code sidebar",
+  "description": "View and manage ChromaDB (databases, collections, records & vectors) from the VS Code sidebar",
   "version": "0.0.5",
   "engines": {
     "vscode": "^1.85.0"
@@ -9,7 +9,7 @@
   "publisher": "MichaelErmer",
   "icon": "resources/icons/chroma.png",
   "categories": [
-    "Other"
+    "Databases"
   ],
   "keywords": [
     "chroma",
@@ -19,21 +19,21 @@
     "ml",
     "vectors"
   ],
-  "license": "MIT",
+  "license": "Apache-2.0",
   "galleryBanner": {
     "color": "#7c3aed",
     "theme": "dark"
   },
-  "homepage": "https://github.com/MichaelErmer/vsce-chroma-explorer",
+  "homepage": "https://github.com/MichaelErmer/vsce-chroma-viewer",
   "repository": {
     "type": "git",
-    "url": "https://github.com/MichaelErmer/vsce-chroma-explorer.git"
+    "url": "https://github.com/MichaelErmer/vsce-chroma-viewer.git"
   },
   "bugs": {
-    "url": "https://github.com/MichaelErmer/vsce-chroma-explorer/issues"
+    "url": "https://github.com/MichaelErmer/vsce-chroma-viewer/issues"
   },
   "activationEvents": [
-    "onView:chromadbExplorer",
+    "onView:chromadbviewer",
     "onCommand:chromadb.connect"
   ],
   "main": "./out/extension.js",
@@ -54,17 +54,17 @@
     "viewsContainers": {
       "activitybar": [
         {
-          "id": "chromadb-explorer",
+          "id": "chromadb-viewer",
           "title": "ChromaDB",
           "icon": "resources/icons/chroma.png"
         }
       ]
     },
     "views": {
-      "chromadb-explorer": [
+      "chromadb-viewer": [
         {
-          "id": "chromadbExplorer",
-          "name": "Explorer",
+          "id": "chromadbviewer",
+          "name": "viewer",
           "type": "tree"
         },
         {
@@ -137,7 +137,7 @@
       "view/title": [
         {
           "command": "chromadb.refresh",
-          "when": "view == chromadbExplorer",
+          "when": "view == chromadbviewer",
           "group": "navigation"
         }
       ],

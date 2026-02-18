@@ -8,7 +8,7 @@ import { registerDatabaseCommands } from './commands/databaseCommands';
 
 export async function activate(context: vscode.ExtensionContext) {
   const provider = new ChromaTreeProvider(context);
-  const view = vscode.window.createTreeView('chromadbExplorer', { treeDataProvider: provider });
+  const view = vscode.window.createTreeView('chromadbViewer', { treeDataProvider: provider });
 
   // connection webview (placed above the tree)
   const connectionView = new (await import('./providers/connectionViewProvider')).ConnectionViewProvider(context, provider);

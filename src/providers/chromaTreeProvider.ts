@@ -73,7 +73,7 @@ export class ChromaTreeProvider implements vscode.TreeDataProvider<vscode.TreeIt
       return [];
     } catch (err: any) {
       console.error('ChromaTreeProvider.getChildren failed:', err);
-      vscode.window.showErrorMessage(`ChromaDB explorer: ${String(err.message || err)}`);
+      vscode.window.showErrorMessage(`ChromaDB viewer: ${String(err.message || err)}`);
       const item = new vscode.TreeItem('Error loading ChromaDB — see Output for details', vscode.TreeItemCollapsibleState.None);
       item.iconPath = new vscode.ThemeIcon('warning');
       return [item];
